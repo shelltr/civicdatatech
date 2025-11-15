@@ -1,0 +1,15 @@
+# Jekyll configuration for GitHub Pages
+# This file enables Jekyll processing and disables default theme.
+
+# If you want to use plain HTML/CSS only, leave this file mostly empty.
+# If you want to use Jekyll features, you can add configuration here.
+
+# Disable default theme
+remote_theme: null
+
+# Set the baseurl if deploying to a subdirectory (e.g., /civicdataproject)
+# baseurl: "/civicdataproject"
+
+# Site settings
+# title: Civicdata.Tech
+# description: Connecting Communities with Open Information
