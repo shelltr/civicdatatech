@@ -7,6 +7,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const BASE_PATH = "/civicdatatech";
+
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | null = null;
     const handleScroll = () => {
@@ -40,11 +42,19 @@ export function Navbar() {
   };
 
   const isOnHome = () => {
-    // With useHashLocation, home is "/" with hash "" or "#/".
+    // Locally: "http://localhost:5173/#/"
+    // Deployed: "https://civicdatatech.github.io/civicdatatech/#/"
     const { pathname, hash } = window.location;
-    return (
-      pathname === "/" && (hash === "" || hash === "#" || hash === "#/")
-    );
+
+    const isLocal =
+      pathname === "/" &&
+      (hash === "" || hash === "#" || hash === "#/" || hash === "#");
+
+    const isDeployed =
+      pathname === BASE_PATH + "/" &&
+      (hash === "" || hash === "#" || hash === "#/" || hash === "#");
+
+    return isLocal || isDeployed;
   };
 
   const handleSectionClick =
@@ -57,7 +67,7 @@ export function Navbar() {
         scrollToId(section);
       } else {
         // Coming from another page: navigate to home with query; Home page will scroll
-        window.location.href = `/#/?section=${section}`;
+        window.location.href = `${BASE_PATH}/#/?section=${section}`;
       }
     };
 
