@@ -8,7 +8,7 @@ const clientRoot = path.resolve(__dirname, 'client')
 export default defineConfig({
   root: clientRoot,
   plugins: [react()],
-  base: "/civicdatatech/",
+  base: "/",
   resolve: {
     alias: {
       '@': path.resolve(clientRoot, 'src'),
