@@ -7,7 +7,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const BASE_PATH = "/civicdatatech";
+  const BASE_PATH = "/";
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | null = null;
@@ -32,7 +32,7 @@ export function Navbar() {
     { name: "Mission", section: "mission" },
     { name: "Strategy", section: "strategy" },
     { name: "Partners", section: "partners" },
-    { name: "Get Involved", href: "/civicdatatech/#/get-involved" },
+    { name: "Get Involved", href: "/#/get-involved" },
   ];
 
   const scrollToId = (id: string) => {
@@ -43,7 +43,7 @@ export function Navbar() {
 
   const isOnHome = () => {
     // Locally: "http://localhost:5173/#/"
-    // Deployed: "https://civicdatatech.github.io/civicdatatech/#/"
+    // Deployed: "https://civicdatatech.github.io/#/"
     const { pathname, hash } = window.location;
 
     const isLocal =
@@ -80,7 +80,7 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="/civicdatatech/#/" className="flex items-center gap-2 group">
+        <a href="/#/" className="flex items-center gap-2 group">
           <ShieldLogo className="h-8 w-8 group-hover:scale-105 transition-transform duration-300" />
           <span className="font-display font-bold text-xl tracking-tight text-foreground">
             Civic Data <span className="text-primary">Tech</span>
@@ -93,7 +93,7 @@ export function Navbar() {
             "section" in link ? (
               <a
                 key={link.name}
-                href={`/civicdatatech/#/?section=${link.section}`}
+                href={`/#/?section=${link.section}`}
                 onClick={handleSectionClick(link.section)}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors cursor-pointer"
               >
@@ -131,7 +131,7 @@ export function Navbar() {
               "section" in link ? (
                 <a
                   key={link.name}
-                  href={`/civicdatatech/#/?section=${link.section}`}
+                  href={`/#/?section=${link.section}`}
                   onClick={(e) => {
                     handleSectionClick(link.section)(e);
                     setMobileMenuOpen(false);
